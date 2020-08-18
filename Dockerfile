@@ -13,4 +13,5 @@ RUN apt-get update \
         minicom \
     &&  rm -rf /var/lib/apt/lists/*
 COPY entrypoint.sh ${WORKDIR}
-ENTRYPOINT ["/mount/entrypoint.sh"]
+# ENTRYPOINT ["/mount/entrypoint.sh"]
+CMD ["make"]
