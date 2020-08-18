@@ -1,0 +1,22 @@
+name: Github Action for AVR-GCC
+description: GitHub Action to compile C to be uploaded into an AVR microcontroller using AVR-GCC compiler
+author: Andrew Ang
+inputs:
+  device:
+    description: Target microcontroller
+    default: atemega328p
+  sources:
+    description: C source files
+  output:
+    description: Output file name
+  project:
+    description: Name of the project
+    default: project
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.device }}
+    - ${{ inputs.sources }}
+    - ${{ inputs.output }}
+    - ${{ inputs.project }}
